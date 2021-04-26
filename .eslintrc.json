@@ -21,6 +21,16 @@
     ],
     "rules": {
 
+        // Ensure consistent use of file extension within the import path
+        "import/extensions": ["error", "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+        ],
+
         // We will use TypeScript's types for component props instead
         "react/prop-types": "off",
         
@@ -30,21 +40,18 @@
         // Disallow JSX props spreading
         "react/jsx-props-no-spreading": "off",
 
-        "import/extensions": ["error", "ignorePackages",
-            {
-              "js": "never",
-              "jsx": "never",
-              "ts": "never",
-              "tsx": "never"
-            }
-        ],
-        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+        // Require modules with a single export to use a default export
         "import/prefer-default-export": "off",
-        "@typescript-eslint/explicit-member-accessibility": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "no-undef": "off",
-        "no-use-before-define": "off",
-        "camelcase": "off",
-        "no-shadow": "off"
+
+        // JSX not allowed in files with extension '.tsx'
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+    },
+    "settings"  : {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {}
+        }
     }
 }
