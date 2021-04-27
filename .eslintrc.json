@@ -44,7 +44,10 @@
         "import/prefer-default-export": "off",
 
         // JSX not allowed in files with extension '.tsx'
-        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+
+        // disallow duplicate imports
+        "import/no-duplicates": 0
     },
     "settings"  : {
         "import/parsers": {
