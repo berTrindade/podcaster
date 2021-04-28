@@ -50,7 +50,10 @@
         "import/no-duplicates": 0,
 
         // disallow the use of console
-        "no-console": "off"
+        "no-console": "off",
+
+        // Enforce consistent usage of destructuring assignment of props, state, and context
+        "react/destructuring-assignment": "never"
     },
     "settings"  : {
         "import/parsers": {
