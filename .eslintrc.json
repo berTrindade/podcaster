@@ -47,7 +47,10 @@
         "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
 
         // disallow duplicate imports
-        "import/no-duplicates": 0
+        "import/no-duplicates": 0,
+
+        // disallow the use of console
+        "no-console": "off"
     },
     "settings"  : {
         "import/parsers": {
