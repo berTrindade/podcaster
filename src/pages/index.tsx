@@ -1,4 +1,17 @@
-export default function Home(props) {
+import { GetStaticProps } from 'next';
+
+type Episode = {
+    id: string;
+    title: string;
+    members: string;
+    // ...
+}
+
+type HomeProps = {
+  episodes: Episode[]
+}
+
+export default function Home(props: HomeProps) {
   const { episodes } = props;
 
   console.log(episodes);
@@ -8,8 +21,8 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps() {
-  const response = await fetch('http://localhost:3333/episodes');
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await fetch('http://localhost:3333/episodes?_limit=12&_published_at&_order=desc');
   const data = await response.json();
 
   return {
@@ -19,4 +32,4 @@ export async function getStaticProps() {
     // Every 8 hours (which means that 3 api calls are going to be made by day)
     revalidate: 60 * 60 * 8,
   };
-}
+};
